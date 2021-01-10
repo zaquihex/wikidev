@@ -1,7 +1,6 @@
 import * as React  from 'react';
 
 // @ts-ignore
-//import radioQuestionMkp from "../../constants/mockups/questionRadioBtn.json";
 import radioQuestionMkp from "@constants/mockups/questionRadioBtn.json"
 
 const RadioQuestion = () => {
