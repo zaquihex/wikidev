@@ -1,7 +1,7 @@
 import {Injector} from '@angular/core';
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
-import ReactCounter from './react-counter';
+
 import {BehaviorSubject} from 'rxjs';
 import RadioQuestion from './RadioQuestion';
 
@@ -21,9 +21,9 @@ class ReactApp extends React.Component<IReactApp, any> {
 
   render() {
     return (
-      <div className={'renderer'}>
+      <>
         <RadioQuestion />
-      </div>
+      </>
     );
   }
 }

@@ -20,11 +20,11 @@
     "@angular/platform-browser-dynamic": "~7.1.0",
     "@angular/router": "~7.1.0",
     "core-js": "^2.5.4",
+    "gulp": "^4.0.2",
+    "materialize-css": "^1.0.0-rc.2",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "rxjs": "~6.3.3",
-    "semantic-ui-css": "^2.4.1",
-    "semantic-ui-react": "^2.0.1",
     "tslib": "^1.9.0",
     "zone.js": "~0.8.26"
   },
