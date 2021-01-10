@@ -1,0 +1,17 @@
+{
+  "id": 1,
+  "question": "question 1",
+  "options":[
+    {
+      "option": "option 1",
+      "solution": true
+    },{
+      "option": "option 2",
+      "solution": false
+    },{
+      "option": "option 3",
+      "solution": true
+    }
+  ],
+  "info": "Info of the question 1"
+}
