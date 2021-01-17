@@ -3,7 +3,7 @@ import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 
 import {BehaviorSubject} from 'rxjs';
-import RadioQuestion from './RadioQuestion';
+import ListQuestions from './ListQuestions';
 
 interface IReactApp {
   injector: Injector;
@@ -22,7 +22,7 @@ class ReactApp extends React.Component<IReactApp, any> {
   render() {
     return (
       <>
-        <RadioQuestion />
+        <ListQuestions />
       </>
     );
   }

@@ -23,6 +23,12 @@ body {
   flex-direction: column;
 }
 
+.cornerLeft {
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
 .centerContainer {
   align-items: center;
 }
@@ -33,6 +39,10 @@ body {
 
 .btnCursor {
   cursor: pointer;
+}
+
+.widthIcon {
+  width: 25px;
 }
 
 .marginSmall {
