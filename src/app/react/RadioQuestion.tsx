@@ -1,25 +1,49 @@
-import * as React  from 'react';
+import * as React   from 'react';
+import { instanceOf } from 'prop-types'
+import {useEffect} from 'react';
 // @ts-ignore
-import radioQuestionMkp from "@constants/mockups/questionRadioBtn.json"
+//import radioQuestionMkp from "@constants/mockups/questionRadioBtn.json"
 
-const RadioQuestion = () => {
+const getBackgroundColorByLevel = (level) => {
+  switch(level) {
+    case 1: return 'teal lighten-3';
+    case 2: return ' light-blue darken-4';
+    case 3: return 'red lighten-1';
+    default: return 'blue-grey darken-1';
+  }
+}
+
+
+const RadioQuestion = ({question, showAnswer}) => {
   // Update Radio buttons checked
   const [userSolution, setUserSolution] = React.useState(null);
   // Show solution on radio options
-  const [showSolution, setShowSolution] = React.useState(false);
+  const [showSolution, setShowSolution] = React.useState(showAnswer);
+
+  useEffect(()=>{
+    setShowSolution(showAnswer);
+  },[showAnswer])
+
   // show question info
   const [showInfo, setShowInfo] = React.useState(false);
 
 
+  const backgroundColor = getBackgroundColorByLevel(question.level);
+
+
   return (
+    !question ? null :
       <div className="row">
         <div className="col s12 m6">
-          <div className="card blue-grey darken-1">
+          <div className={`card ${backgroundColor}`}>
             <div className="card-content white-text">
-              <span className="card-title">{radioQuestionMkp.question}</span>
+              <div className="flex">
+                <img src={`../../assets/topic/${question.topic}.png`} className="cornerLeft widthIcon marginSmall" />
+                <span className="card-title">{question.question}</span>
+              </div>
               <div className='flexColumn'>
               {
-                radioQuestionMkp.options.map((optionInfo, posOption) => {
+                question.options.map((optionInfo, posOption) => {
                   const checkedOption = userSolution === posOption;
                   const isColorGreen = showSolution && optionInfo.solution;
                   const isColorRed = showSolution && checkedOption && !optionInfo.solution;
@@ -36,9 +60,9 @@ const RadioQuestion = () => {
             </div>
             <div className="card-action">
               <div className="flex centerContainer" style={{maxHeight: '50px'}}>
-                <a className='btnCursor widthAuto' onClick={()=>{setShowInfo(!showInfo)}}>Show info</a>
+                <a className='btnCursor widthAuto ' onClick={()=>{setShowInfo(!showInfo)}}>Show info</a>
                 <div className={`colorWhite transitionFade ${showInfo ? 'appear' : 'disappear'}`} style={{width: showInfo ? '70%' :  '0%'}}>
-                  {radioQuestionMkp.info}
+                  {question.info}
                 </div>
                 <a className={`waves-effect waves-light btn marginSmall widthAuto transitionFade ${showInfo ? 'disappear' : 'appear'}`} onClick={()=>{setShowSolution(!showSolution)}}>{showSolution ? 'hide answer' : 'check answer'}</a>
               </div>
@@ -46,6 +70,14 @@ const RadioQuestion = () => {
           </div>
         </div>
       </div>)
+}
+
+RadioQuestion.propTypes = {
+  question: instanceOf(Object)
+}
+
+RadioQuestion.defaultProps = {
+  question: null
 }
 
 export default RadioQuestion;

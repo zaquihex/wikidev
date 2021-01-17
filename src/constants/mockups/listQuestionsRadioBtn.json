@@ -1,0 +1,107 @@
+[
+  {
+    "id": 1,
+    "type": "radioBtn",
+    "topic": "react",
+    "level": 1,
+    "language": "es",
+    "question": "¿Que tipo de variable fuerza el renderizado?",
+    "options":[
+      {
+        "option": "Variable de estado",
+        "solution": true
+      },{
+        "option": "Variable de clase",
+        "solution": false
+      },{
+        "option": "Variable global",
+        "solution": false
+      }
+    ],
+    "info": "La única diferencia entre una variable de estado y una variable de clase, es que el componente se renderiza cuando la variable de estado se actualiza. La variable global es como una variable de clase salvo que es visible a nivel de proyecto, en lugar de a nivel de clase."
+  },
+  {
+    "id": 1,
+    "type": "radioBtn",
+    "topic": "angular",
+    "level": 1,
+    "language": "es",
+    "question": "¿Como se llaman los ficheros donde se realizan las llamadas?",
+    "options":[
+      {
+        "option": "Acciones",
+        "solution": false
+      },{
+        "option": "Servicios",
+        "solution": true
+      },{
+        "option": "Sagas",
+        "solution": false
+      }
+    ],
+    "info": "Servicios es el nombre del componente de angular donde se llama a las APIs. Acciones es para redux-thunk (React) y sgas para redux-sagas (React)"
+  },
+  {
+    "id": 3,
+    "type": "radioBtn",
+    "topic": "react",
+    "level": 2,
+    "language": "es",
+    "question": "¿Como se llama el hook para recuperar la información de redux?",
+    "options":[
+      {
+        "option": "useState",
+        "solution": false
+      },{
+        "option": "useReducer",
+        "solution": false
+      },{
+        "option": "useSelector",
+        "solution": true
+      }
+    ],
+    "info": "useState se usa para crear una variable de estado y useReducer para crear una reducer. La respuesta es useSelector."
+  },
+  {
+    "id": 4,
+    "type": "radioBtn",
+    "topic": "react",
+    "level": 3,
+    "language": "es",
+    "question": "¿Qué diferencia hay entre usar useRef y coger la referencia del componente directamente?",
+    "options":[
+      {
+        "option": "Nada, es lo mismo solo que useRef esta algo mas optimizado",
+        "solution": false
+      },{
+        "option": "useRef puede acceder a las propiedades y funciones del componente, la refencia directa no es capaz de eso",
+        "solution": true
+      },{
+        "option": "useRef es más cómodo de usar pero no es tán optimo si se usa en cada renderizado",
+        "solution": false
+      }
+    ],
+    "info": "useRef es algo más optimo debido a cómo funcionan los hooks y, además, te permite acceder a las propiedades del componente."
+  },
+  {
+    "id": 5,
+    "type": "radioBtn",
+    "topic": "angular",
+    "level": 2,
+    "language": "es",
+    "question": "¿Cual es la principal diferencia por la que es mejor en rendimiento React frente a Angular?",
+    "options":[
+      {
+        "option": "React usa un DOM virtual en lugar de referencias",
+        "solution": true
+      },{
+        "option": "los hooks de React hacen mas ligero el proyecto",
+        "solution": false
+      },{
+        "option": "React es una librería completa como angular, asi que no vas a tener cosas que no usas",
+        "solution": false
+      }
+    ],
+    "info":"Las tres opciones son correctas pero la principal y la que le dió el pistoletazo a React, fué el uso de un DOM virtual y las re-renderizaciones para ahorrarse el coste de buscar elementos por referencia en el DOM."
+  }
+]

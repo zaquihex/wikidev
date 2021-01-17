@@ -3,7 +3,8 @@
   "compilerOptions": {
     "baseUrl": "./",
     "paths": {
-      "@constants/*": ["src/constants/*"]
+      "@constants/*": ["src/constants/*"],
+      "@assets/*": ["src/assets/*"]
     },
     "outDir": "./dist/out-tsc",
     "sourceMap": true,
