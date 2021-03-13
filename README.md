@@ -41,7 +41,7 @@ To keep clear structure, I create this structure of directory:
 
 ```
 angular /
-  ng-counterActions.component.ts // Component in Angular
+  form.component.ts // Component in Angular
   react-renderer.component.ts // ReactJS renderer without communication
 react /
   react-application.tsx // React init application
@@ -147,7 +147,7 @@ To keep it clear, below I present complete directory structure for this part:
 ```
 angular /
   hero.service.ts
-  ng-counterActions.component.ts // Component in Angular
+  form.component.ts // Component in Angular
   react-counter.component.ts // ReactJS renderer with bidirectional communication
 model /
   hero.ts // interface for Hero object
@@ -352,7 +352,7 @@ export class ReactCounterComponent implements OnInit {
 }
 ```
 
-And now we should change a little `ng-counterActions.component.ts` to see all efect:
+And now we should change a little `form.component.ts` to see all efect:
 
 ```
 @Component({
