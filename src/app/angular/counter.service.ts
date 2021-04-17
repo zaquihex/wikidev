@@ -13,14 +13,4 @@ export class CounterService {
   getCounter$(): BehaviorSubject<number> {
     return this.counter$;
   }
-
-  plusCounter() {
-    const counter: number = this.counter$.getValue() + 1;
-    this.counter$.next(counter);
-  }
-
-  minusCounter() {
-    const counter: number = this.counter$.getValue() - 1;
-    this.counter$.next(counter);
-  }
 }

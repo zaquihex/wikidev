@@ -21,7 +21,7 @@
     "info": "La única diferencia entre una variable de estado y una variable de clase, es que el componente se renderiza cuando la variable de estado se actualiza. La variable global es como una variable de clase salvo que es visible a nivel de proyecto, en lugar de a nivel de clase."
   },
   {
-    "id": 1,
+    "id": 2,
     "type": "radioBtn",
     "topic": "angular",
     "level": 1,

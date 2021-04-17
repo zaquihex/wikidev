@@ -1,11 +1,11 @@
 import {Component, Input, OnInit} from '@angular/core';
 
 import { CounterService } from './counter.service';
-import {Question} from '../../interfaces/question';
-import {FormGroup, FormBuilder, FormControl, FormArray, Validators} from '@angular/forms';
+import { Question } from '../../interfaces/question';
+import { FormGroup, FormBuilder, FormControl, FormArray, Validators } from '@angular/forms';
 
 @Component({
-  selector: 'app-ng-counter',
+  selector: 'questionnaire-form',
   templateUrl: './form.html',
   styleUrls: ['./form.scss']
 })
@@ -42,7 +42,7 @@ export class Form implements OnInit {
   get form() { return this.questionaryForm.controls; }
   get questions() { return this.form.questions as FormArray; }
   optionsQuestion(posQuestion) {
-    return this.form.questions.value[posQuestion].options;
+    return this.form.questions.controls[posQuestion].controls.options.controls;
   }
 
   addQuestion() {
@@ -63,9 +63,13 @@ export class Form implements OnInit {
     questionOptions.push({...questionOptions[0], text: null});
   }
 
-  optionTextChanged(posQuestion, valueOption) {
+  solutionOptionChanged(posQuestion, value) {
+    this.form.questions.controls[posQuestion].controls.solutionOption = value;
+  }
+
+  optionTextChanged(posQuestion, posOption, valueOption) {
     const questionOptions = this.optionsQuestion(posQuestion);
-    questionOptions[posQuestion].text = valueOption;
+    questionOptions[posOption].text = valueOption;
   }
 
   removeQuestion(posQuestion) {

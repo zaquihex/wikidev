@@ -1,5 +1,5 @@
 import * as React   from 'react';
-import { instanceOf } from 'prop-types'
+import { instanceOf, number } from 'prop-types'
 import {useEffect} from 'react';
 // @ts-ignore
 //import radioQuestionMkp from "@constants/mockups/questionRadioBtn.json"
@@ -14,7 +14,7 @@ const getBackgroundColorByLevel = (level) => {
 }
 
 
-const RadioQuestion = ({question, showAnswer}) => {
+const RadioQuestion = ({ idQuestion, question, showAnswer }) => {
   // Update Radio buttons checked
   const [userSolution, setUserSolution] = React.useState(null);
   // Show solution on radio options
@@ -49,8 +49,8 @@ const RadioQuestion = ({question, showAnswer}) => {
                   const isColorRed = showSolution && checkedOption && !optionInfo.solution;
                   const colorOption = isColorGreen ? 'colorGreen' : isColorRed ? 'colorRed' :  'colorWhite';
                   return (
-                    <label>
-                      <input className="with-gap" name="group1" type="radio" checked={checkedOption} onClick={()=>{setUserSolution(posOption)}} />
+                    <label key={`optionLabel-${idQuestion}-${posOption}`}>
+                      <input className="with-gap" name="group1" type="radio" checked={checkedOption} onChange={()=>{setUserSolution(posOption)}} />
                       <span className={`${colorOption}`}>{optionInfo.option}</span>
                     </label>
                   );
@@ -73,11 +73,8 @@ const RadioQuestion = ({question, showAnswer}) => {
 }
 
 RadioQuestion.propTypes = {
-  question: instanceOf(Object)
-}
-
-RadioQuestion.defaultProps = {
-  question: null
+  idQuestion: number.isRequired,
+  question: instanceOf(Object).isRequired
 }
 
 export default RadioQuestion;

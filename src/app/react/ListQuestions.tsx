@@ -12,7 +12,7 @@ const ListQuestions = () => {
     <>
       {
         listQuestionsRadioBtn.map((question) => (
-          <RadioQuestion question={question} key={`radioQuestion-${question.id}`} showAnswer={showAllAnswers}/>
+          <RadioQuestion question={question} key={`radioQuestion-${question.id}`} idQuestion={question.id} showAnswer={showAllAnswers}/>
         ))
       }
       <a className={`waves-effect waves-light btn marginSmall widthAuto transitionFade`} onClick={()=>{setShowAllAnswers(!showAllAnswers)}}>Check all answers</a>

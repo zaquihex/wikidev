@@ -1,4 +1,4 @@
-<div id="app-ng-counterActions">
+<div id="container-questionnaire-form">
   <h4>Crea tu propio cuestionario </h4>
   <div class="row">
     <form class="col s12" [formGroup]="questionaryForm" (onSubmit)="submitForm()">
@@ -20,25 +20,25 @@
           <div *ngIf="this.formSubmitted && this.form.questions.value[0].question.length === 0" class="col s12 invalid-feedback colorRed">
             {{this.msgMandatoryField}}
           </div>
-          <select class="input-field  browser-default col s2" required>
+          <select class="input-field  browser-default col s2" required (select)="this.solutionOptionChanged(posQuestion, $event.target.value)">
             <option value="" disabled selected>Choose solution option</option>
-            <option *ngFor="let option of this.optionsQuestion(posQuestion); let posOption = index" [value]="posOption">{{posOption +1}}</option>
+            <option *ngFor="let option of this.optionsQuestion(posQuestion); let posOption = index" [value]="posOption">{{option.text}}</option>
           </select>
-        </div>
-        <div *ngFor="let optionInfo of this.optionsQuestion(posQuestion); let posOption = index" class="marginBig">
-          <div class="col s12" [formGroup]="optionInfo">
-            <div class="input-field col s6 marginOption">
-              <input type="text" formControlName="text" class="validate" required (change)="this.optionTextChanged(posQuestion,$event.target.value)">
-              <label>Option</label>
+          <div *ngFor="let optionInfo of this.optionsQuestion(posQuestion); let posOption = index" class="marginBig">
+            <div class="col s12" [formGroup]="optionInfo">
+              <div class="input-field col s6 marginOption">
+                <input type="text" formControlName="text" class="validate" required (change)="this.optionTextChanged(posQuestion,posOption,$event.target.value)">
+                <label>Option</label>
+              </div>
+              <a *ngIf="posOption > 0" class="btn-floating btn-large waves-effect waves-light red" (click)="this.removeOption(posQuestion,posOption)"><i class="material-icons">remove</i></a>
+              <a *ngIf="posOption === this.optionsQuestion(posQuestion).length-1" class="btn-floating btn-large waves-effect waves-light green marginIcon" (click)="addOption(posQuestion)"><i class="material-icons">add</i></a>
             </div>
-            <a *ngIf="posOption > 0" class="btn-floating btn-large waves-effect waves-light red" (click)="this.removeOption(posQuestion,posOption)"><i class="material-icons">remove</i></a>
-            <a *ngIf="posOption === this.optionsQuestion(posQuestion).length-1" class="btn-floating btn-large waves-effect waves-light green marginIcon" (click)="addOption(posQuestion)"><i class="material-icons">add</i></a>
           </div>
-        </div>
-        <div class="col s8">
-          <div class="input-field col s9">
-            <input type="text" class="validate" required>
-            <label formControlName="solution">Solución</label>
+          <div class="col s8">
+            <div class="input-field col s9">
+              <input type="text" class="validate" formControlName="solution" required>
+              <label>Solución</label>
+            </div>
           </div>
         </div>
         <div class="marginBig col s12">
